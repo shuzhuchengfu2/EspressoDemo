@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">EspressoDemo</string>
+    <string name="click_me">点我啊！</string>
+    <string name="show_result">显示结果</string>
+    <string name="edit_name">请输入名字</string>
+    <string name="show_name">显示名字</string>
+</resources>
