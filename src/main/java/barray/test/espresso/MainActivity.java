@@ -6,6 +6,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import barray.test.espresso.act.BasicUsageActivity;
+import barray.test.espresso.act.IntentActivity;
+import barray.test.espresso.act.ListViewActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -19,10 +21,35 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * 基本用法
+     *
      * @param view
      */
-    public void basicUsage(View view){
+    public void basicUsage(View view) {
         Intent intent = new Intent(this, BasicUsageActivity.class);
         startActivity(intent);
     }
+
+    /**
+     * 适配器测试
+     *
+     * @param view
+     */
+    public void adapterTest(View view) {
+        Intent intent = new Intent(this, ListViewActivity.class);
+        startActivity(intent);
+    }
+
+    /**
+     * startActivityForResult
+     * @param view
+     */
+    public void forResult(View view){
+        Intent intent = new Intent(this, IntentActivity.class);
+        startActivity(intent);
+    }
+
+
+
+
+
 }

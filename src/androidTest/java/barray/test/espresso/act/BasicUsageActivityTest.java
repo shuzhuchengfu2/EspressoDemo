@@ -1,4 +1,4 @@
-package barray.test.espresso;
+package barray.test.espresso.act;
 
 import android.support.test.espresso.Espresso;
 import android.support.test.espresso.action.ViewActions;
@@ -9,13 +9,14 @@ import android.support.test.filters.LargeTest;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
 
+import org.hamcrest.Matchers;
 import org.hamcrest.core.AllOf;
 import org.hamcrest.core.IsNot;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import barray.test.espresso.act.BasicUsageActivity;
+import barray.test.espresso.R;
 
 /**
  * author： xiongdejin
@@ -41,8 +42,10 @@ public class BasicUsageActivityTest {
     @Test
     public void testShowName(){
         String name = "张三";
-        // 查找 id 为 @edit_name 控件 替换内容 @name  //ps:typeText 有些版本不适用
-        Espresso.onView(ViewMatchers.withHint(R.string.edit_name)).perform(ViewActions.replaceText(name));
+        // 查找 id 为 @edit_name 控件 替换内容 @name ,关闭输入软键盘  //ps:typeText 有些版本不适用
+        Espresso.onView(ViewMatchers.withHint(R.string.edit_name)).perform(ViewActions.replaceText(name),ViewActions.closeSoftKeyboard());
+        // 查找 id 为 @edit_name 控件 校验该控件内容是否以 三 结尾
+        Espresso.onView(ViewMatchers.withId(R.id.et_name)).check(ViewAssertions.matches(ViewMatchers.withText(Matchers.endsWith("三"))));
         // 查找 id 为 @show_name 控件 点击
         Espresso.onView(ViewMatchers.withText(R.string.show_name)).perform(ViewActions.click());
         // 查找 显示 @name 窗口 不是当前Activity所属 窗口
@@ -50,4 +53,11 @@ public class BasicUsageActivityTest {
                 .inRoot(RootMatchers.withDecorView(IsNot.not(activityTestRule.getActivity().getWindow().getDecorView())))
                 .check(ViewAssertions.matches(ViewMatchers.isDisplayed()));
     }
+
+
+
+
+
+
+
 }
