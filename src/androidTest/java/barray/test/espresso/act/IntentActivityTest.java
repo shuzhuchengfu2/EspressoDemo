@@ -11,14 +11,13 @@ import android.support.test.espresso.action.ViewActions;
 import android.support.test.espresso.assertion.ViewAssertions;
 import android.support.test.espresso.intent.Intents;
 import android.support.test.espresso.intent.matcher.IntentMatchers;
+import android.support.test.espresso.intent.rule.IntentsTestRule;
 import android.support.test.espresso.matcher.BoundedMatcher;
 import android.support.test.espresso.matcher.ViewMatchers;
 import android.support.test.filters.LargeTest;
-import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
 import android.view.View;
 import android.widget.ImageView;
-
 
 import org.hamcrest.Description;
 import org.hamcrest.core.IsNot;
@@ -38,7 +37,7 @@ import barray.test.espresso.R;
 @RunWith(AndroidJUnit4.class)
 public class IntentActivityTest {
     @Rule
-    public ActivityTestRule<IntentActivity> activityTestRule = new ActivityTestRule<>(IntentActivity.class);
+    public IntentsTestRule<IntentActivity> intentsTestRule = new IntentsTestRule<>(IntentActivity.class);
 
     @Before
     public void stubCameraIntent(){
@@ -56,7 +55,7 @@ public class IntentActivityTest {
     private Instrumentation.ActivityResult createImageCaptureActivityResultStub(){
         Bundle bundle = new Bundle();
         bundle.putParcelable(IntentActivity.KEY_IMAGE_DATA, BitmapFactory.decodeResource(
-                activityTestRule.getActivity().getResources(), R.mipmap.ic_launcher));
+                intentsTestRule.getActivity().getResources(), R.mipmap.ic_launcher));
         Intent resultData = new Intent();
         resultData.putExtras(bundle);
         return new Instrumentation.ActivityResult(Activity.RESULT_OK, resultData);
