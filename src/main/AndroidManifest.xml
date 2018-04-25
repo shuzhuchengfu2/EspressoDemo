@@ -34,6 +34,8 @@
         </activity>
         <activity android:name=".act.RecyclerViewActivity">
         </activity>
+        <activity android:name=".act.WebViewActivity">
+        </activity>
     </application>
 
 </manifest>
