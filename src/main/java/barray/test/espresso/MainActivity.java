@@ -6,8 +6,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import barray.test.espresso.act.BasicUsageActivity;
+import barray.test.espresso.act.CallPhoneActivity;
 import barray.test.espresso.act.IntentActivity;
 import barray.test.espresso.act.ListViewActivity;
+import barray.test.espresso.act.RecyclerViewActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -47,6 +49,26 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, IntentActivity.class);
         startActivity(intent);
     }
+
+    /**
+     * 回调及权限
+     * @param view
+     */
+    public void forResultAndPermission(View view){
+        Intent intent = new Intent(this, CallPhoneActivity.class);
+        startActivity(intent);
+    }
+
+    /**
+     * RecyclerView
+     * @param view
+     */
+    public void recyclerView(View view){
+        Intent intent = new Intent(this, RecyclerViewActivity.class);
+        startActivity(intent);
+    }
+
+
 
 
 

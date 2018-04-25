@@ -4,4 +4,6 @@
     <string name="show_result">显示结果</string>
     <string name="edit_name">请输入名字</string>
     <string name="show_name">显示名字</string>
+    <string name="item_element_text">This is element #</string>
+    <string name="middle">This is the middle!</string>
 </resources>
